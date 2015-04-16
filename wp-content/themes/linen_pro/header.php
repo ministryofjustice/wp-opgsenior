@@ -14,7 +14,7 @@
 
 	<!-- Basic Meta Data -->
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="copyright" content="<?php 
+	<meta name="copyright" content="<?php
 		echo esc_attr( sprintf(
 			__( 'Design is copyright %1$s The Theme Foundry', 'linen' ),
 			date( 'Y' )
@@ -27,11 +27,11 @@
 	<!-- WordPress -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
-    
+
     <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/one.css">
     <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/two.css">
 	<link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
-	
+
 </head>
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content"><?php _e( 'Skip to content', 'linen' ); ?></a></div>
@@ -41,7 +41,7 @@
 				<?php $upload_dir = wp_upload_dir(); ?>
 				<div id="title">
 					<a href="<?php echo home_url( '/' ); ?>">
-						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span>The OPG Working for Change Blog</span>
+						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span>OPG senior leaders' blog</span>
 					</a>
 				</div>
 				<?php if ($linen->logoTagline() == 'true' ) : ?>
@@ -73,24 +73,18 @@
 		<?php if (is_page_template( 'tm-left-sidebar.php' )) : ?>
 			<?php get_sidebar(); ?>
 		<?php endif; ?>
-		
+
 	<div id="featured" class="clear">
 		<div class="container">
 			<div id="slides">
 				<div class="slides_container">
 					<div id="slide-1" class="slide show-slide">
 						<!--<img scale="0" src="/wp-content/themes/linen_pro/images/ursula-banner.jpg" height="353" width="652">-->
-						<div class="slide-content">
-							<!--<h2>Get to know a bit more about me, what I'm up to and what makes me tick...</h2>-->
-							<p>The OPG’s Blog on everything Transformation including activities, key talking points, ideas and suggestions.<br />
 
-Enter your information gateway here to Transformation….
-</p>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-		
+
 		<div id="content" <?php if ( ( is_page_template( 'tm-no-sidebar.php' ) ) || ( $linen->sidebarDisable() == 'true' ) ) echo ( 'class="no-sidebar"' ); ?>>
