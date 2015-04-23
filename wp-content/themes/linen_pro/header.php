@@ -36,12 +36,23 @@
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content"><?php _e( 'Skip to content', 'linen' ); ?></a></div>
 	<div id="wrapper" class="clear">
+<?php
+	$backgroundType = get_field('background_select', 'option');
+
+	if ($backgroundType == "image"){
+		$style = "background: url(" . get_field('upload_image', 'option') . ') no-repeat';
+	} else { //it's a color
+		$style = "background-color: " . get_field('pick_colour', 'option');
+	}
+?>
+	<div style="<?php echo $style; ?>" class="only-built-4-bg-img">
+	
 		<div id="header" class="clear">
 			<?php if ($linen->logoState() == 'true' ) : ?>
 				<?php $upload_dir = wp_upload_dir(); ?>
 				<div id="title">
 					<a href="<?php echo home_url( '/' ); ?>">
-						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span>OPG senior leaders' blog</span>
+						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><?php echo( '<h1 id="title">' ); ?><?php bloginfo( 'name' ); ?><?php echo( '</h1>' ); ?>
 					</a>
 				</div>
 				<?php if ($linen->logoTagline() == 'true' ) : ?>
@@ -86,5 +97,5 @@
 			</div>
 		</div>
 	</div>
-
+	</div><!--end only-built-4-bg-img -->	
 		<div id="content" <?php if ( ( is_page_template( 'tm-no-sidebar.php' ) ) || ( $linen->sidebarDisable() == 'true' ) ) echo ( 'class="no-sidebar"' ); ?>>
